@@ -1,24 +1,25 @@
-# Welcome
+# ยินดีต้อนรับ
 
-There's a lot of outdated information on the Web that leads new PHP users astray, 
-propagating bad practices and insecure code. _PHP: The Right Way_ is an easy-to-read, 
-quick reference for PHP popular coding standards, links to authoritative tutorials 
-around the Web and what the contributors consider to be best practices at the present 
-time.
+ยังมีเว็บไซต์จำนวนมากที่ได้สอนการใช้ PHP ซึ่งไม่่ได้ปรับปรุงข้อมุลให้ทันสมัยตรงกับมาตรฐานปัจจุบัน
+ด้วยเหตุผลดังนี้ จึงทำให้ผู้เริ่มต้นเรียนรู้ภาษา PHP ได้นำความรู้ที่ไม่ได้มาตรฐาน นำมาใช้พัฒนาภาษา PHP
+ที่ไม่ถูกต้องและก่อให้เกิดโปรแกรมที่ไม่ปลอดภัยอีกด้วย _PHP: The Right Way_ เป็นเว็บไซต์ที่อ่านง่าย
+และสามารถที่จะนำมาใช้เป็นมาตรฐานอ้างอิงในการพัฒนาภาษา PHP ได้อย่างดี
+นอกจากนี้ยังรวบรวมบทความจากเว็บไซต์ต่างๆ ที่ผู้ร่วมพัฒนาภาษา PHP ได้ยอมรับว่าเป็นมาตรฐานปัจจุบัน
+ซึ้งสามารถนำมาใช้งานได้จริง
 
-_There is no canonical way to use PHP_. This website aims to introduce new PHP 
-developers to some topics which they may not discover until it is too late, and aims 
-to give seasoned pros some fresh ideas on those topics they've been doing for years 
-without ever reconsidering. This website will also not tell you which tools to use, but 
-instead offer suggestions for multiple options, when possible explaining the differences 
-in approach and use-case. 
+_การพัฒนาภาษา PHP นั้น ยังไม่ได้มีวิธีใดที่เป็นที่ยอมรับอย่างกว้างขวาง_ เว็บไซต์นี้มีจุดมุ่งหมายที่จะแนะนำ
+การพัฒนาภาษา PHP ให้แด่ผู้เริ่มต้นในหัวข้อบางหัวข้อที่เขาไม่สามารถอ้างอิงได้จากที่ไหน ก่อนที่จะสายเกินไป
+นอกจากนี้สำหรับผู้ที่ได้พัฒนาภาษา PHP มานานแล้ว อาจจะมีบางหัวข้อที่พวกเขาสามารถที่จะนำแนวคิดใหม่ๆ
+ไปปรับปรุงการพัฒนาภาษา PHP ในหัวข้อนั้นๆได้อีกด้วย เว็บไซต์นี้จะไม่บอกคุณในทุกเรื่องที่ไม่ได้สำคัญ อย่างเช่น
+ควรจะใช้เครื่องมือไหนดีเวลาพัฒนาภาษา PHP แต่เว็บไซต์นี้จะแนะนำทางเลือกหลายๆทาง พร้อมทั้งยกตัวอย่าง
+และเหตุผลในแต่และทางเลือกนั้นๆ
 
-This is a living document and will continue to be updated with more helpful information 
-and examples as they become available.
+เว็บไซต์นี้จะได้รับการปรับปรุงอยู่ตลอดเวลา โดยจะคอยเพิ่มเติมข้อมูลใหม่ๆที่มีประโยชน์ และจะคอยเพิ่มเติมตัวอย่าง
+เพื่อที่สามารถที่จะนำมาใช้่งานได้จริง
 
-## Translations
+## ภาษาต่างๆ
 
-_PHP: The Right Way_ is (or soon will be) translated into many different languages:
+_PHP: The Right Way_ ได้ (หรือจะได้) ถูกนำมาแปลเป็นภาษา:
 
 * [English](http://www.phptherightway.com)
 * Catalan (Link broken... we're looking into it)
@@ -33,18 +34,19 @@ _PHP: The Right Way_ is (or soon will be) translated into many different languag
 * [Ukrainian](http://iflista.github.com/php-the-right-way/)
 * [Bulgarian](http://bg.phptherightway.com/)
 * [German](http://rwetzlmayr.github.io/php-the-right-way/)
+* [Thai](http://apzentral.github.io/php-the-right-way/)
 * [Turkish](http://hkulekci.github.io/php-the-right-way/)
 
-## How to Contribute
+## ต้องการเป็นส่วนร่วม?
 
-Help make this website the best resource for new PHP programmers! [Contribute on GitHub][1]
+ช่วยพัฒนาเว็บไซต์นี้ให้เป็นเว็บไซต์มาตรฐาน ที่สามารถให้ผู้ที่ต้องการเรียนรู้ภาษา PHP นำมาใช้เป็นที่อ้างอิงได้! [เป็นส่วนร่วมได้ใน GitHub][1]
 
-## Spread the Word!
+## ช่วยกันบอกต่อ!
 
-_PHP: The Right Way_ has web banner images you can use on your website. Show your support, and let new PHP developers
-know where to find good information!
+_PHP: The Right Way_ มีเว็บแบนเนอร์ที่คุณสามารถนำไปแสดงในเว็บไซต์ของคุณได้ ถ้าคุณต้องการที่จะช่วยสนับสนุนเว็บไซต์นี้
+และแนะนำให้นักพัฒนาภาษา PHP ที่ต้องการจะเรียนรู้ ได้รู้จักกับเว็บไซต์นี้ ซึ่งนำเสนอข้อมูลที่ได้รับมาตรฐานปัจจุบัน!
 
-[See Banner Images][2]
+[ไปดูเว็บแบนเนอร์][2]
 
 [1]: https://github.com/codeguy/php-the-right-way/tree/gh-pages
 [2]: /banners.html

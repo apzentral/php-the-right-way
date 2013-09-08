@@ -4,20 +4,20 @@ isChild: true
 
 ## Vagrant {#vagrant_title}
 
-Running your application on different environments in development and production can lead to strange bugs 
-popping up when you go live. It's also tricky to keep different development environments up to date with the same 
-version for all libraries used when working with a team of developers. 
+การใช้โปรแกรมในสภาพแวดล้อมที่แตกต่างกันนั้นในช่วงเวลาพัฒนากับเวลานำไปใช้งานจริง จะสามารถก่อให้เกิดข้อบกพร้องที่แปลกไปเมื่อนำไปใช้งานจริง
+นอกจากนั้นการที่จะคอยเก็บข้อมูลที่แตกต่างกันระหว่างสภาพแวดล้อมสำหรับการพัฒนากับการที่ไปใช่้งานจริง ในแต่ละรุ่นของโปรแกรมของเรา และยังต้องคอยบันทีก
+libraries ต่างๆที่เราได้ใช้กันภายในทีมงานของผู้พัฒนาโปรแกรมในแต่ละรุ่นของโปรแกรมของเรา นับว่าจะเป็นอะไรที่ซับซ้อนอยู่
 
-If you are developing on Windows and deploying to Linux (or anything non-Windows) or are developing in a team, you 
-should consider using a virtual machine. This sounds tricky, but using [Vagrant][vagrant] you can set up a simple 
-virtual machine with only a few steps. These base boxes can then be set up manually, or you can use "provisioning" 
-software such as [Puppet][puppet] or [Chef][chef] to do this for you. Provisioning the base box is a great way to 
-ensure that multiple boxes are set up in an identical fashion and removes the need for you to maintain complicated 
-"set up" command lists. You can also "destroy" your base box and recreate it without many manual steps, making it
-easy to create a "fresh" installation.
+ถ้าคุณทำการพัฒนาโปรแกรมใน Windows และนำไปใช้งานจริงที่ Linux (หรืออะไรก็ตามที่ไม่ใช่ Windows) หรือถ้าคุณพัฒนาโปรแกรมอย่างเป็นทีมงาน
+คุณน่าจะลองใช้ virtual machine ในการพัฒนาโปรแกรมดู วิธีนี้อาจจะดูเหมือนว่ามีขั้นตอนที่ยุ่งยาก แต่ถ้าได้ลองใช้ [Vagrant][vagrant]
+ในการติดตั้ง virtual machine คุณจะสามารถที่จะติดตั้ง virtual machine ได้อย่างง่ายได้โดยทำเพียงไม่กี่ขั้นตอน นอกจากนี้คุณยังสามารใช้
+"provisioning" โปรแกรมอย่างเช่น [Puppet][puppet] หรือ [Chef][chef] ติดตั้งให้คุณ provisioning นั้นเป็นสิ่งที่สามารถช่วยทำให้การดูแลระบบ
+ในการพัฒนาโปรแกรมนั้นง่ายมากขี้น เพราะโปรแกรมนี้จะคอยควบคุมการติดตั้ง virtual machine หรือ สิ่งแวดล้อมนั้นให้ได้รับการติดตั้งที่เหมือนกัน
+คุณจีงไม่ต้องมาคอยติดตั้งสิ่งแวดล้อมของคุณทุกครั้งที่เครื่องแม่มีการเปลี่ยนแปลง และไม่ต้องมาคอยรวบรวมข้อมูลวิธีการติดตั้งทุกครั้ง แม้กระทั้งเครื่อง
+แม่ของคุณได้ศูนย์เสียข้อมูลไป คุณก็สามารถที่จะติดตั้งเครื่องแม่ใหม่ได้อย่างง่ายดายโดยการใช้โปรแกรมเหล่านี้
 
-Vagrant creates shared folders used to share your code between your host and your virtual machine, meaning you can 
-create and edit your files on your host machine and then run the code inside your virtual machine.
+Vagrant จะสร้างโฟลเดอร์ที่สามารถใช้ในการส่งผ่านข้อมูลระหว่างเครื่องของคุณกับ virtual machine ด้วย นั้นก็หมายความว่าคุณสามารถที่จะสร้างหรือ
+แก้ไขไฟล์ของคุณบนเครื่องของคุณและคุณก็สามารถที่จะเรียกใช้โปรแกรมของคุณได้ใน virtual machine เพื่อที่จะทดสอบโปรแกรมของคุณ
 
 [vagrant]: http://vagrantup.com/
 [puppet]: http://www.puppetlabs.com/

@@ -1,1 +1,1 @@
-# Language Highlights {#language_highlights_title}
+# จุดเด่นของภาษา PHP {#language_highlights_title}

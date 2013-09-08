@@ -1,33 +1,32 @@
-# Code Style Guide  {#code_style_guide_title}
+# สไตล์ในการเขียนโปรแกรม  {#code_style_guide_title}
 
-The PHP community is large and diverse, composed of innumerable libraries, frameworks, and components. It is common for
-PHP developers to choose several of these and combine them into a single project. It is important that PHP code adhere
-(as close as possible) to a common code style to make it easy for developers to mix and match various libraries for
-their projects.
+ชุมชนของผู้เขียนโปรแกรม PHP นั้นมีอยู่กว้างขวางและมีความหลากหลาย ประกอบไปด้วย libraries, framework และ components
+มันเป็นเรื่องปรกติที่ผู้พัฒนาโปรแกรม PHP จะนำเอาสิ่งต่างๆเหล่านี้มารวมกันใช้ในการพัฒนาโปรแกรมนั้นๆ มันเป็นสิ่งที่สำคัญหรือมาตรฐาน
+ในการพัฒนาสไตล์เพื่อใช้ในการสร้างหรือรวบรวมโปรแกรมต่างๆเข้ามาใช้รวมกันได้อย่างง่ายดายและไม่มีปัญหา
 
-The [Framework Interop Group][fig] has proposed and approved a series of style recommendations, known as [PSR-0][psr0], 
-[PSR-1][psr1] and [PSR-2][psr2]. Don't let the funny names confuse you, these recommendations are merely 
-a set of rules that some projects like Drupal, Zend, Symfony, CakePHP, phpBB, AWS SDK, FuelPHP, Lithium, etc are starting 
-to adopt. You can use them for your own projects, or continue to use your own personal style.
+[Framework Interop Group][fig] ได้เสนอและได้รับการอนุมัติสไตล์ต่างๆที่ได้รับการยอมรับอย่างกว้างขวาง อย่างเช่น [PSR-0][psr0],
+[PSR-1][psr1] และ [PSR-2][psr2] อย่าได้สับสนในชื่อที่แปลกเหล่านี้ ชื่อสไตล์เหล่านี้เป็นที่ยอมรับและแนะนำที่ใช้กันอย่างกว้างขวาง
+ในโครงการใหญ่ๆอย่างเช่น Drupal, Zend, Symfony, CakePHP, phpBB, AWS SDK, FuelPHP, Lithium, และอื่นๆอีกมากมาย
+คุณสามารถนำสไตล์เหล่านี้มาใช้ในโครงการของคุณได้ หรือคุณอยากที่จะใช้สไตล์ของคุณเองก็ย่อมได้
 
-Ideally you should write PHP code that adheres to a known standard. This could be any combination of PSR's, or one 
-of the coding standards made by PEAR or Zend. This means other developers can easily read and work with your code, 
-and applications that implement the components can have consistency even when working with lots of third-party code. 
+แต่จะเป็นสิ่งที่ดีกว่าถ้าคุณเขียนโปรแกรม PHP ในสไตล์ที่ได้รับการยอมรับว่าเป็นมาตรฐานของ PHP ซึ้งสไตล์เหล่านี้สามารถที่จะเกิดจากการ
+นำ PSR เหล่านี้มารวมกัน หรือสไตล์ที่ PEAR และ Zend ได้ใช้อยู่ ถ้าคุณใช้สไตล์มาตรฐานในการเขียน PHP นั้นจะทำให้นักพัฒนาโปรแกรมสามารถ
+ที่จะอ่านและเข้าใจโปรแกรมของคุณได้อย่างง่ายดาย โปรแกรมที่ใช้สไตล์มาตรฐานนั้นจะสามารถนำมาใช้ร่วมกับโปรแกรมอื่นได้อย่างไม่มีปัญหา
 
-* [Read about PSR-0][psr0]
-* [Read about PSR-1][psr1]
-* [Read about PSR-2][psr2]
-* [Read about PEAR Coding Standards][pear-cs]
-* [Read about Zend Coding Standards][zend-cs]
+* [ข้อมูลเพิ่มเติมของ PSR-0][psr0]
+* [ข้อมูลเพิ่มเติมของ PSR-1][psr1]
+* [ข้อมูลเพิ่มเติมของ PSR-2][psr2]
+* [ข้อมูลเพิ่มเติมของ PEAR Coding Standards][pear-cs]
+* [ข้อมูลเพิ่มเติมของ Zend Coding Standards][zend-cs]
 
-You can use [PHP_CodeSniffer][phpcs] to check code against any one of these recommendations, and plugins for text editors 
-like [Sublime Text 2][st-cs] to be given real time feedback. 
+คุณสามารถที่จะใช้ [PHP_CodeSniffer][phpcs] เพื่อที่จะใช้ในการตรวจสอบโปรแกรมของคุณกับสไตล์มาตรฐานเหล่านี้ นอกจากนี้ยังมีปลั๊กอินสำหรับ
+text editors อย่างเช่น [Sublime Text 2][st-cs] ที่สามารถที่จะตรวจสอบได้ในขณะที่คุณกำลังพิมพ์ PHP ได้อย่างทันที
 
-Use Fabien Potencier's [PHP Coding Standards Fixer][phpcsfixer] to automatically modify your code syntax so that it
-conforms to these standards, saving you from fixing each problem by hand.
+ถ้าใช้ Fabien Potencier's [PHP Coding Standards Fixer][phpcsfixer] เพื่อที่จะตรวจสอบไวยากรณ์ของโปรแกรมของคุณให้สอดคล้องกับ
+มาตรฐานเหล่านี้ เพื่อที่จะทำให้การทำงานของคุณง่ายดายขี้น
 
-English is preferred for all symbol names and code infrastructure. Comments may be written in any language easily readable 
-by all current and future parties who may be working on the codebase.
+ภาษาอังกฤษเป็นภาษาหลักสำหรับตัวแปลต่างๆและโครงสร้างของโปรแกรม ข้อคิดเห็นนั้นสามารถที่จะเขียนในภาษาใดๆก็ได้ที่ทำให้ทางทีมงาน
+ของคุณและผู้ร่วมพัฒนาในอนาคต ที่จะสามารถเข้าใจโปรแกรมของคุณได้อย่างง่ายดาย
 
 [fig]: http://www.php-fig.org/
 [psr0]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md

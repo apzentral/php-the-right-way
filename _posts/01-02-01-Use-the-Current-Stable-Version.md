@@ -3,9 +3,11 @@ title: Use the Current Stable Version (5.5)
 isChild: true
 ---
 
-## Use the Current Stable Version (5.5) {#use_the_current_stable_version_55_title}
+## ควรที่จะใช้ PHP รุ่นปัจจุบันที่เสถียร (5.5) {#use_the_current_stable_version_55_title}
 
-If you are just getting started with PHP make sure to start with the current stable release of [PHP 5.5][php-release]. PHP has made great strides adding powerful [new features](#language_highlights) over the last few years. Don't let the minor version number difference between 5.2 and 5.5 fool you, it represents _major_ improvements. If you are looking for a function or its usage, the documentation on the [php.net][php-docs] website will have the answer.
+ถ้าคุณพึ่งเริ่มต้นเรียนรู้ภาษา PHP คุณควรที่จะเริ่มต้นด้วยการใช้รุ่นปัจจุบันที่เสถียรของ [PHP 5.5][php-release] PHP ได้เพิ่มประสิทธิภาพ [คุณสมบัติใหม่](#language_highlights)
+มาไม่นานนี้เอง อย่าให้รุ่นที่แตกต่างเล็กน้อยอย่าง 5.2 และ 5.5 มาหลอกคุณได้ ตัวเลขที่แตกต่างกันนี้ได้แสดงให้เห็นถึงความแตกต่างอย่างชัดเจน
+ถ้าคุณต้องการหาฟังก์ชันหรือวิธีการใช้ฟังก์ชัน คุณสามารถที่จะหาได้ใน [php.net][php-docs] เว็บไซต์นี้จะมีคำตอบมากมายในนั้น
 
 [php-release]: http://www.php.net/downloads.php
 [php-docs]: http://www.php.net/manual/en/

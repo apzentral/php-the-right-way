@@ -4,9 +4,9 @@ title: Website Banners
 description: "Spread the word! Use these banner to let new PHP programmers know about PHP: The Right Way"
 ---
 
-# Web Banners
+# เว็บแบนเนอร์
 
-Spread the word with _PHP: The Right Way_ banner images! Show new PHP developers where to find good information.
+ช่วยกันบอกต่อให้กับ _PHP: The Right Way_ ด้วยการใช้เว็บแบนเนอร์! แสดงให้ผู้เริ่มพัฒนาโปรแกรมภาษา PHP ได้รับข้อมูลที่ดีและทันสมัย
 
 ## Button 1 (120x90)
 

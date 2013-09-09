@@ -1,5 +1,5 @@
 ---
-title: Use the Current Stable Version (5.5)
+title: ควรที่จะใช้ PHP รุ่นปัจจุบันที่เสถียร (5.5)
 isChild: true
 ---
 

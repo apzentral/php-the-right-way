@@ -49,4 +49,4 @@ _PHP: The Right Way_ มีเว็บแบนเนอร์ที่คุ�
 [ไปดูเว็บแบนเนอร์][2]
 
 [1]: https://github.com/codeguy/php-the-right-way/tree/gh-pages
-[2]: /banners.html
+[2]: /php-the-right-way/banners.html

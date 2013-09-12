@@ -1,72 +1,97 @@
 ---
+title: Composer และ Packagist
 isChild: true
 ---
 
-## Composer and Packagist {#composer_and_packagist_title}
+## Composer และ Packagist {#composer_and_packagist_title}
 
-Composer is a **brilliant** dependency manager for PHP. List your project's dependencies in a `composer.json` file and, with a few simple commands, Composer will automatically download your project's dependencies and setup autoloading for you.
+Composer เป็น dependency manager ที่ดีมากสำหรับ PHP คุณสามารถที่จะรวบรวม dependency ที่คุณใช้ในโครงการของคุณได้
+โดยรวมรวมไว้ใน `composer.json` ไฟล์และคุณก็สามารถที่จะคำสั้งง่ายๆในการใช้ Composer เพื่อที่จะให้ Composer
+ดาวน์โหลด dependency ให้คุณโดยอัตโนมัติ และนอกจากนั้น Composer ยังทำการติดตั้ง autoloading ให้ในโครงการของคุณทันที
 
-There are already a lot of PHP libraries that are compatible with Composer, ready to be used in your project. These "packages" are listed on [Packagist][1], the official repository for Composer-compatible PHP libraries.
+PHP ได้มี libraries จะนวนมากที่รองรับการใช้งานร่วมกับ Composer และนั้นก็หมายความว่า libraries เหล่านี้ก็พร้อมให้คุณนำ
+มาใช้งานได้ทันทีในโครงการของคุณ คุณสามารถที่จะหาแพคเกจแหล่านี้ได้ใน [Packagist][1]
+(ศูณย์รวม PHP libraries ที่สามารถนำมาใช้ได้กับ Composer อย่างเป็นทางการ)
 
-### How to Install Composer
+### จะติดตั้ง Composer ได้อย่างไร?
 
-You can install Composer locally (in your current working directory; though this is no longer recommended) or globally (e.g. /usr/local/bin). Let's assume you want to install Composer locally. From your project's root directory:
+คุณสามารถที่จะติดตั้ง Composer ได้ในเครื่องคอมพิวเตอร์ของคุณ (ในไดเรกทอรีที่คุณใช้ทำงาน แต่เราไม่แนะนำให้ใช้วิธีนี้) หรือ
+คุณสามารถติดตั้งในสภาพแวดล้อมทั่วไปของคุณ (อย่างเช่น ใน Unix, Linux หรือ Mac จะติดตั้งใน /usr/local/bin)
+ยกตัวอย่างว่า ถ้าคุณต้องการที่จะติดตั้งในไดเรกทอรีที่คุณใช้งาน เราจะไปที่ root ไดเรกทอรีของโครงการของเรา:
 
     curl -s https://getcomposer.org/installer | php
 
-This will download `composer.phar` (a PHP binary archive). You can run this with `php` to manage your project dependencies. <strong>Please Note:</strong> If you pipe downloaded code directly into an interpreter, please read the code online first to confirm it is safe.
+คำสั่งนี้จะทำการดาวน์โหลด `composer.phar` (*.phar ไฟล์เป็น PHP binary archive) คุณสามารถที่จะใช้คำสั่ง command line `php`
+ในการจัดการ dependencies ของโครงการคุณ <strong>หมายเหตุ:</strong> ถ้าคุณใช้ pipe (|) คำสั่งใน terminal
+แล้วให้ส่ง output ออกไปที่ interpreter อย่างในตัวอย่างนี้ command | php คุณจะต้องมั่นใจว่าโปรแกรมที่คุณส่งไปให้ interpreter นั้นปลอดภัย
+แต่ตัวอย่างข้างบน ที่เราใช้ `curl` ในการ download โปรแกรมจาก Composer นั้นปลอดภัยเพราะ Composer ได้รับการยอมรับจากชุมชน PHP
+เรียบร้อยแล้วว่าปลอดภัย
 
-### How to Install Composer (manually)
+### จะติดตั้ง Composer ได้อย่างไร? (ด้วยตัวคุณเอง)
 
-Manually installing Composer is an advanced technique; however, there are various reasons why a developer might prefer this method vs. using the interactive installation routine. The interactive installation checks your PHP installation to ensure that:
+จากติดตั้ง Composer ด้วยตัวคุณเองนั้นจะต้องใช้วิธีขั้นตอนมากมายในการติดตั้ง แต่มีเหตุผลที่ผู้พัฒนาโปรแกรมส่วนมากใช้วิธีนี้ในการติดตั้ง Composer
+มากกว่าที่จะใช้โปรแกรมติดตั้งให้คุณ สาเหตุนั้นก็คือ การใช้โปรแกรมติดตั้งให้นั้นจะตรวจสอบว่า
 
-- a sufficient version of PHP is being used
-- `.phar` files can be executed correctly
-- certain directory permissions are sufficient
-- certain problematic extensions are not loaded
-- certain `php.ini` settings are set
+- จะตรวจสอบรุ่นของ PHP ว่ารองรับไหม
+- สามารถที่จะใช้ `.phar` ไฟล์ได้
+- ไดเรกทอรีบางอย่างที่ต้องการ จะต้องได้รับการติดตั้ง permissions ได้อย่างถูกต้อง
+- extensions บางตัวที่มีปัญหาจะต้องไม่ได้รับการโหลดมาติดตั้ง
+- ไฟล์ `php.ini` นั้นจะต้องมาค่าติดตั้งที่รองรับ
 
-Since a manual installation performs none of these checks, you have to decide whether the trade-off is worth it for you. As such, below is how to obtain Composer manually:
+แต่การติดตั้งด้วยตัวคุณเองนั้น คุณไม่จำเป็นที่จะต้องตรวจสอบสิ่งต่างๆเลย คุณจึงมีอิสรภาพในการติดตั้งค่าต่างๆในระบบของคุณได้ด้วยตัวคุณเอง
 
     curl -s https://getcomposer.org/composer.phar -o $HOME/local/bin/composer
     chmod +x $HOME/local/bin/composer
 
-The path `$HOME/local/bin` (or a directory of your choice) should be in your `$PATH` environment variable. This will result in a `composer` command being available.
+path `$HOME/local/bin` (หรือคุณจะเปลี่ยนเป็นไดเรกทอรีใดๆก็ได้ที่คุณต้องการ) หลังจากนั้นคุณจะต้องนำ path นี้ไปติดตั้งใน `$PATH`
+environment variable ของคุณ ถ้าคุณได้ติดตั้งอย่างถูกต้อง คุณจะสามารถเรียกใช้ `composer` ใน command ได้ทันที
 
-When you come across documentation that states to run Composer as `php composer.phar install`, you can substitute that with:
+ถ้าคุณเห็นบางตัวอย่างหรือบทความที่อ้างอิงถึงการเรียกใช้ Composer ดังนี้ `php composer.phar install` คุณสามารถที่จะใช้คำสั่งนี้แทนได้
+ในทันที
 
     composer install
 
-### How to Define and Install Dependencies
+### จะทำการกำหนดค่าและติดตั้ง Dependencies เหล่านี้ได้อย่างไร?
 
-Composer keeps track of your project's dependencies in a file called `composer.json`. You can manage it by hand if you like, or use Composer itself. The `php composer.phar require` command adds a project dependency and if you don't have a `composer.json` file, one will be created. Here's an example that adds [Twig][2] as a dependency of your project. Run it in your project's root directory where you've downloaded `composer.phar`:
+Composer จะมีไฟล์ที่เรียกว่า `composer.json` ไฟล์นี้จะมีข้อมูลของ dependencies ของที่โครงการเราใช้ คุณสามารถที่จะจัดการระบบด้วยตัวคุณเองอย่างง่ายดาย
+ในไฟล์นี้ หรือคุณจะใช้ Composer ก็ได้ คำสั่งนี้ `php composer.phar require` จะทำการเพิ่ม dependencies ให้คุณเอง และถ้าคุณไม่มีไฟล์ `composer.json`
+คำสั่งนี้ก็จะสร้างไฟล์นี้ให้คุณทันที เรามาลองใช้คำสั่งนี้ในการเพิ่ม [Twig][2] เข้าไปใน dependency ของโครงการคุณ คุณจะต่้องใช้คำสั่งนี้ใน root directory ของ
+โครงการคุณที่คุณได้ดาวน์โหลด `composer.phar` มา:
 
-	php composer.phar require twig/twig:~1.8
+    php composer.phar require twig/twig:~1.8
 
-Alternatively the `php composer.phar init` command will guide you through creating a full `composer.json` file for your project. Either way, once you've created your `composer.json` file you can tell Composer to download and install your dependencies into the `vendors/` directory. This also applies to projects you've downloaded that already provide a `composer.json` file:
+หรือถ้าคุณใช้คำสั่ง `php composer.phar init` นี้ คำสั่งนี้จะมีตัวเลือกให้คุณได้ทำการสร้างไฟล์ `composer.json` ให้ในโครงการของคุณ ไม่ว่าคุณใช้วิธีไหน
+ก็ตาม คุณก็จะมี `composer.json` ไฟล์ในโครงการของคุณ และคุณสามารถที่จะให้ Composer ดาวน์โหลดและติดตั้ง dependencies เหล่านี้ให้คุณในไดเรกทอรี
+`vendors/` นอกจากนี้บางโครงการที่มี `composer.json` ไฟล์ติดตั้งมาด้วย คุณก็สามารถที่จะเรียกใช้งานได้เช่นกัน
 
     php composer.phar install
 
-Next, add this line to your application's primary PHP file; this will tell PHP to use Composer's autoloader for your project dependencies.
+ขั้นต่อไป คุณแค่เพียงนำบรรทัดข้างล่างนี้ไปใส่ในยังไฟล์โปรแกรมหลักของโครงการคุณ เพียงเท่านี้ Composer's autoloader จะคอยเรียก dependencies
+ของโครงการคุณให้เอง
 
 {% highlight php %}
 <?php
 require 'vendor/autoload.php';
 {% endhighlight %}
 
-Now you can use your project dependencies, and they'll be autoloaded on demand.
+เพียงเท่านี้คุณก็สามารถที่จะเรียกใช้ dependencies ของโครงการคุณได้ และ dependencies เหล่านี้จะเรียกใช้เมื่อเราต้องการ
 
-### Updating your dependencies
+### การอัปเดต dependencies ของคุณ
 
-Composer creates a file called `composer.lock` which stores the exact version of each package it downloaded when you first ran `php composer.phar install`. If you share your project with other coders and the `composer.lock` file is part of your distribution, when they run `php composer.phar install` they'll get the same versions as you. To update your dependencies, run `php composer.phar update`.
+Composer จะสร้างไฟล์ `composer.lock` ให้ ไฟล์นี้จะเก็บรุ่นแพ็กเกจที่คุณได้ดาวน์โหลดเมื่อเรียกใช้คำสั่ง `php composer.phar install`
+และถ้าคุณได้ร่วมใช้โครงการของคุณกับนักพัฒนาอื่นๆและโครงการคุณนั้นได้มีไฟล์ `composer.lock` ติดไปด้วย เมื่อเขาได้ใช้คำสั่ง
+`php composer.phar install` เขาก็จะได้ดาวน์โหลด dependencies รุ่นเดียวกับที่คุณใช้ในโครงการของคุณ ถ้าคุณต้องการที่จะอัปเดต
+dependencies ของคุณ คุณเพียงแค่ใช้คำสั่ง `php composer.phar update` คำสั่งนี้จะมีประโยชน์อย่างมากเมื่อคุณได้เลือกใช้รุ่นของ dependencies
+ที่ไม่ได้เจาะจง อย่างเช่น คุณเลือกใช้รุ่นที่ ~1.8 ก็หมายความว่า "รุ่นอะไรก็ได้ที่ใหม่กว่า 1.8.0 แต่ น้อยกว่า 2.0.x-dev" คุณยังสามารถที่จะใช้
+`*` wildcard ใน `1.8.*` เมื่อคุณใช้ตัวเลือกนี้ แล้วใช้คำสั่ง `php composer.phar update` Composer จะทำการปรับปรุง dependencies
+ของคุณให้เป็นรุ่นใหม่ที่สอดคล้องกับตัวเลือกที่คุณเลือก
 
-This is most useful when you define your version requirements flexibly. For instance a version requirement of ~1.8  means "anything newer than 1.8.0, but less than 2.0.x-dev". You can also use the `*` wildcard as in `1.8.*`. Now Composer's `php composer.phar update` command will upgrade all your dependencies to the newest version that fits the restrictions you define.
+### ตรวจสอบความปลอดภัยของ dependencies เหล่านั้น
 
-### Checking your dependencies for security issues
+[Security Advisories Checker][3] เป็น web service และ คำสั่ง command-line ทั้งสองทางนี้จะทำการตรวจสอบไฟล์ `composer.lock`
+และจะเตือนคุณเมื่อ dependencies ที่คุณใช้นั้นสมควรที่จะได้รับการอัปเดต
 
-The [Security Advisories Checker][3] is a web service and a command-line tool, both will examine your `composer.lock` file and tell you if you need to update any of your dependencies.
-
-* [Learn about Composer][4]
+* [เรียนรู้เพิ่มเติมเกี่ยวกับ Composer][4]
 
 [1]: http://packagist.org/
 [2]: http://twig.sensiolabs.org

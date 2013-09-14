@@ -1,12 +1,12 @@
 ---
+title: พื้นฐาน
 isChild: true
 ---
 
-## The Basics {#the_basics_title}
+## พื้นฐาน {#the_basics_title}
 
-PHP is a vast language that allows coders of all levels the ability to produce code not only quickly, but efficiently. 
-However while advancing through the language, we often forget the basics that we first learnt (or overlooked) in favor 
-of short cuts and/or bad habits. To help combat this common issue, this section is aimed at reminding coders of the 
-basic coding practices within PHP.
+PHP เป็นภาษาที่มีความคล่องตัวสูง ที่นักเขียนโปรแกรมทุกความสามารถ สามารถเขียนโปรแกรมได้อย่างรวดเร็วและมีประสิทธิภาพ แต่เมื่อได้เริ่มพัฒนาต่อๆไปแล้ว
+ส่วนมากนักพัฒนาก็จะลืมพื้นฐานที่ได้เรียนรู้มา หรือไม่ได้สนใจที่จะเรียนรู้ สาเหตุเหล่านี้เกิดจากที่ความเคยตัวที่ผิดหรือต้องการที่จะเร่งพัฒนาโปรแกรมให้เสร็จ
+ในบทเรียนนี้จะช่วยแก้ปัญหาพื้นฐานเหล่านี้ และสนับสนุนให้นักพัฒนาได้เรียนรู้มาตรฐานในการเขียนโปรแกรม PHP
 
-* Continue reading on [The Basics](/pages/The-Basics.html)
+* อ่านเพิ่มเติมได้ใน [บทเรียนพื้นฐาน](/php-the-right-way/pages/The-Basics.html)

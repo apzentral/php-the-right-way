@@ -4,13 +4,11 @@ isChild: true
 
 ## Design Patterns {#design_patterns_title}
 
-When you are building your application it is helpful to use common patterns in your code and common patterns for the
-overall structure of your project. Using common patterns is helpful because it makes it much easier to manage your code
-and lets other developers quickly understand how everything fits together.
+เมื่อคุณเริ่มต้นคิดที่จะพัฒนาโปรแกรมนั้น การใช้ patterns พื้นฐานในการเขียนโปรแกรมนั้นจะช่วยคุณได้อย่างมาก การใช้ patterns พื้นฐานนั้นมีประโยชน์
+เพราะว่าจะช่วยให้คุณดูแลควบคุมโปรแกรมของคุณได้ง่ายและทำให้ผู้ร่วมพัฒนาโปรแกรมสามารถที่จะเข้าใจโปรแกรมของคุณทำงานอย่างไรได้อย่างง่าย
 
-If you use a framework then most of the higher level code and project structure will be based on that framework, so a
-lot of the pattern decisions are made for you. But it is still up to you to pick out the best patterns to follow in the
-code you build on top of the framework. If, on the other hand, you are not using a framework to build your application
-then you have to find the patterns that best suit the type and size of application that you're building.
+ถ้าคุณได้ใช้ framework ในการพัฒนาโปรแกรมนั้น โปรแกรมของคุณก็จะอ้่างอิงตาม framework ที่คุณใช้ ดังนั้น patterns ต่างๆได้ออกแบบมาเรียบร้อยแล้ว
+แต่คุณก็สามารถที่จะเลือกวิธีในการเลือกใช้ patterns ในการพัฒนาเพิ่มเติมต่อจาก framework นั้น แต่ถ้าคุณตัดสินใจที่จะไม่ใช้ framework ในการพัฒนาโปรแกรม
+คุณจะต้องเลือกที่จะใช้ patterns ที่เหมาะสมมากที่สุดในการพัฒนาโปรแกรมนั้น
 
-* Continue reading on [Design Patterns](/pages/Design-Patterns.html)
+* อ่านเพิ่มเติมในหัวข้อ [Design Patterns](/php-the-right-way/pages/Design-Patterns.html)

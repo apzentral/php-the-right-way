@@ -1,1 +1,1 @@
-# Coding Practices {#coding_practices_title}
+# มาตรฐานในการเขียนโปรแกรมให้ดี {#coding_practices_title}

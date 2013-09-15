@@ -4,20 +4,18 @@ isChild: true
 
 ## Exceptions {#exceptions_title}
 
-Exceptions are a standard part of most popular programming languages, but they are often overlooked by PHP programmers. 
-Languages like Ruby are extremely Exception heavy, so whenever something goes wrong such as a HTTP request failing, or 
-a DB query goes wrong, or even if an image asset could not be found, Ruby (or the gems being used) will throw an 
-exception to the screen meaning you instantly know there is a mistake. 
+Exceptions เป็นมาตรฐานของภาษาโปรแกรมส่วนใหญ่ แต่สำหรับนักพัฒนาภาษา PHP นั้นจะมากข้ามไป ภาษาอย่าง Ruby นั้นจะใช้ Exception อย่างมากมาย
+ถ้าเกิดเหตุการณ์ที่ไม่คาดคิดเกิดขึ้นนั้น เช่น การเรียกใช้ HTTP ที่ผิดพลาด หรือการเชื่อมต่อกับฐานข้อมูลที่ผิดพลาด แม้กระทั้งการที่ไม่สามารถหา image asset ได้
+Ruby (หรือ gems ที่กำลังใช้) จะ throw exception ให้กับผู้เรียกใช้ให้เห็นข้อผิดพลาดได้อย่างทันที
 
-PHP itself is fairly lax with this, and a call to `file_get_contents()` will usually just get you a `FALSE` and a warning.
-Many older PHP frameworks like CodeIgniter will just return a false, log a message to their proprietary logs and maybe 
-let you use a method like `$this->upload->get_error()` to see what went wrong. The problem here is that you have to go 
-looking for a mistake and check the docs to see what the error method is for this class, instead of having it made extremely 
-obvious.
+สำหรับ PHP นั้น จะไม่ได้ให้ความสำคัญกับการ throw exception มากนัก อย่างเช่น ถ้าคุณใช้ `file_get_contents()` จะให้ค่า `FALSE` และ warning
+เท่านั้น โดยเฉพาะ PHP frameworks เก่าอย่าง CodeIgniter จะให้ค่า false เท่านั้น และจะทำการ log ข้อความเหล่านั้นใน logs และอาจจะให้คุณ
+ตรวจสอบข้อผิดพลาดได้โดยใช้ `$this->upload->get_error()` แต่ปัญหาที่ใช้วิธีนี้นั้น คือคุณจะต้องตรวจสอบหาข้อผิดพลาดเองและต้องอ่านคู่มือวิธีการเรียกใช้
+method เหล่านี้สำหรับ class นั้นๆ แทนที่จะมีมาตรฐานในการตรวจหาข้อผิดพลาดได้ทันที
 
-Another problem is when classes automatically throw an error to the screen and exit the process. When you do this you 
-stop another developer from being able to dynamically handle that error. Exceptions should be thrown to make a developer aware 
-of an error; they then can choose how to handle this. E.g.:
+ปัญหาอีกอย่างก็คือ ถ้า class นั้นทำการ throw ข้อผิดพลาดไปที่หน้าจอและหยุดการทำงานทันทีนั้นจะไม่ดีเท่าการที่จะสามารถจัดการข้อผิดพลาดเหล่านี้ได้ทันทีที่เกิดขี้น
+และก็สามารถทำให้โปรแกรมทำงานต่อไปได้จนจบอย่างไม่มีการติดขัด เราสมควรที่จะ throw Exceptions เพื่อที่จะให้ผู้พัฒนาโปรแกรมสามารถที่จะทราบถึงข้อผิดพลาด
+ได้ทันที และก็สามารถที่จะจัดการกับข้อผิดพลาดได้ด้วย ดังเช่น ตัวอย่างโปรแกรมนี้
 
 {% highlight php %}
 <?php
@@ -46,25 +44,26 @@ finally
 
 ### SPL Exceptions
 
-The generic `Exception` class provides very little debugging context for the developer; however, to remedy this,
-it is possible to create a specialized `Exception` type by sub-classing the generic `Exception` class:
+`Exception` class ที่มากับ PHP นั้นได้ให้ข้อความที่สามารถนำมาใช้ในการ debug ได้น้อยมาก แต่อย่างไรก็ตาม เราสามารถที่จะแก้และปรับปรุงที่จะสร้าง
+`Exception` class ชนิดพิเศษได้ โดยการสร้าง class จาก `Exception` class ได้
 
 {% highlight php %}
 <?php
 class ValidationException extends Exception {}
 {% endhighlight %}
 
-This means you can add multiple catch blocks and handle different Exceptions differently. This can lead to 
-the creation of a <em>lot</em> of custom Exceptions, some of which could have been avoided using the SPL Exceptions 
-provided in the [SPL extension][splext]. 
+นั้นก็หมายความว่า คุณสามารถที่จะมี catch blocks ได้หลายแบบ เพื่อที่จะคอยดักจับ Exceptions ต่างๆกันได้อย่างง่าย นั่นก็จะส่งผลให้เราสามารถที่จะสร้าง
+Exceptions class <em>ได้อย่างมากมาย</em> แต่แท้จริงแล้ว เราสามารถใช้ SPL Exceptions แทนที่ได้ คุณสามารถที่จะเลือก
+[SPL extension][splext] เพื่อนำมาใช้ได้เลย
 
-If for example you use the `__call()` Magic Method and an invalid method is requested then instead of throwing a standard 
-Exception which is vague, or creating a custom Exception just for that, you could just `throw new BadFunctionCallException;`.
+ยกตัวอย่างเช่น ถ้าคุณใช้ Magic Method `__call()` และ ได้ส่งค่า method ที่ผิดไปนั้น PHP จะ `throw new BadFunctionCallException;` ให้เรา
+ดังนั้นคุณก็ไม่จำเป็นที่จะต้องสร้าง custom Exception เพีื่อที่จะรองรับ Exception นี้ หรือเรียกใช้ Exception class เบื้องต้น ซึ้งไม่ได้บอกรายละเอียดของ
+Exception ได้อย่างเจาะจงมากพอ
 
-* [Read about Exceptions][exceptions]
-* [Read about SPL Exceptions][splexe]
-* [Nesting Exceptions In PHP][nesting-exceptions-in-php]
-* [Exception Best Practices in PHP 5.3][exception-best-practices53]
+* [อ่านเพิ่มเติมเกี่ยวกับ Exceptions][exceptions]
+* [อ่านเพิ่มเติมเกี่ยวกับ SPL Exceptions][splexe]
+* [การ Nesting Exceptions ใน PHP][nesting-exceptions-in-php]
+* [Exception Best Practices ใน PHP 5.3][exception-best-practices53]
 
 [exceptions]: http://php.net/manual/en/language.exceptions.php
 [splexe]: http://php.net/manual/en/spl.exceptions.php

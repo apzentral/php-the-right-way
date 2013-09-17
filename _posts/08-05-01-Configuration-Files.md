@@ -4,12 +4,10 @@ isChild: true
 
 ## Configuration Files {#configuration_files_title}
 
-When creating configuration files for your applications, best practices recommend that one of the following methods 
-be followed:
+เมื่อคุณต้องการที่จะสร้าง configuration ไฟล์ในโปรแกรมของคุณนั้น วิธีการปฏิบัติที่ดีที่สุดก็คือ คุณสมควรที่จะทำตามหัวข้อดังต่อไปนี้
 
-- It is recommended that you store your configuration information where it cannot be accessed directly and pulled in 
-via the file system.
-- If you must store your configuration files in the document root, name the files with a `.php` extension. This 
-ensures that, even if the script is accessed directly, it will not be output as plain text.
-- Information in configuration files should be protected accordingly, either through encryption or group/user file 
-system permissions
+- ขอแนะนำให้คุณเก็บไฟล์ที่คุณใช้ในการเก็บข้อมูล configuration ของโปรแกรมของคุณนั้น ในที่ๆไม่สามารถที่จะเข้าถีงได้
+และไม่สามารถที่จะนำมาใช้ได้ในระบบไฟล์ของคุณ
+- ถ้าคุณต้องเก็บค่า configuration ไฟล์ไว้ใน document root แล้วละก็ คุณก็ควรที่จะต้องใช้ไฟล์ที่ใช้ `.php` extension การที่เราใช้ `.php` extension นั้น
+ก็เพราะว่า ถึงจะมีการเข้าถึงสคริปต์ได้โดยตรงแล้วละก็ สคริปตจะไม่เอาท์พุทออกมาให้เห็นเป็นข้อความธรรมดาได้
+- ข้อมูลใน configuration ไฟล์สมควรที่จะได้รับการปกป้องอย่างถูกต้อง โดยผ่านระบบเข้ารหัสหรือกลุ่ม/ผู้ใช้ไฟล์ผ่านระบบการให้สิทธิ์

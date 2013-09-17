@@ -4,60 +4,53 @@ isChild: true
 
 ## Data Filtering {#data_filtering_title}
 
-Never ever (ever) trust foreign input introduced to your PHP code. Always sanitize and validate
-foreign input before using it in code. The `filter_var` and `filter_input` functions can sanitize text and validate text formats (e.g.
-email addresses).
+คุณจะต้องไม่เชื่อว่าค่าต่างๆที่ถูกผ่านเข้ามาใน PHP โปรแกรมนั้นมีค่าถูกต้องอย่างเด็ดขาด คุณจะต้องตรวจสอบและแก้ไขข้อมูลเหล่านั้นเสมอก่อนที่จะนำมาใช้ในโปรแกรมของคุณ
+ใน PHP นั้นได้มี `filter_var` และ `filter_input` ฟังก์ชั่นที่สามารถตรวจสอบค่าและทำการแก้ไขค่าเหล่านั้นให้ถูกต้องได้ (เช่น ข้อมูล email addresses เป็นต้น)
 
-Foreign input can be anything: `$_GET` and `$_POST` form input data, some values in the `$_SERVER`
-superglobal, and the HTTP request body via `fopen('php://input', 'r')`. Remember, foreign input is not
-limited to form data submitted by the user. Uploaded and downloaded files, session values, cookie data,
-and data from third-party web services are foreign input, too.
+ข้อมูลที่ได้รับมาจากภายนอกนั้นสามารถเป็นอะไรก็ได้ ข้อมูลเหล่านั้นคือ `$_GET` และ `$_POST` ที่ได้มาจาก form ของคุณ นอกจากนั้น ค่า `$_SERVER` บางค่า และ
+HTTP request body จาก `fopen('php://input', 'r')` คุณต้องจำไว้ว่า ข้อมูลภายนอกเหล่านี้ไม่ได้มาจาก form เพียงอย่างเดียวเท่านั้น
+การ upload และ download ไฟล์ต่างๆ, ข้อมูลจาก session, ข้อมูล cookie, และ ข้อมูลจากเว็บไซต์ต่างๆนั้นก็ถือว่าเป็นข้อมูลภายนอกทั้งนั้น
 
-While foreign data can be stored, combined, and accessed later, it is still foreign input. Every
-time you process, output, concatenate, or include data in your code, ask yourself if
-the data is filtered properly and can it be trusted.
+โดยข้อมูลภายนอกเหล่านั้น คุณสามารถที่จะนำมาใช้ในโปรแกรมของคุณได้ เราก็ถือว่าข้อมูลเหล่านั้นเป็นข้อมูลที่เราเชื่อถือไม่ได้ ทุกๆครั้งที่เรานำข้อมูลเหล่านั้นมาใช้ไม่ว่าจะนำมาใช้
+อย่างไรก็ตามในโปรแกรมของคุณ คุณจะต้องถามตัวคุณเองทุกครั้งว่า คุณสามารถเชื่อถือข้อมูลเหล่านั้นได้หรือไม่ ข้อมูลเหล่านั้นได้รับการตรวจสอบและแก้ไขหรือยัง
 
-Data may be _filtered_ differently based on its purpose. For example, when unfiltered foreign input is passed
-into HTML page output, it can execute HTML and JavaScript on your site! This is known as Cross-Site
-Scripting (XSS) and can be a very dangerous attack. One way to avoid XSS is to sanitize all user-generated
-data before outputting it to your page by removing HTML tags with the `strip_tags` function or escaping
-characters with special meaning into their respective HTML entities with the `htmlentities`
-or `htmlspecialchars` functions.
+ข้อมูลแต่ละข้อมูลนั้นอาจจะมีวิธีการตรวจสอบและแก้ไขที่ต่างกันไปตามจุดประสงค์ที่จะนำมาใช้ ยกตัวอย่างเช่น เมื่อข้อมูลภายนอกที่ไม่ได้รับการตรวจสอบและแก้ไขและได้ถูกนำไปใช้ใน
+หน้า HTML นั้น ก็จะสามารถที่จะใช้คำสั่ง HTML และ JavaScript ในหน้าเว็บไซต์ของเราได้ ข้อผิดพลาดนี้เราเรียกว่า Cross-Site Scripting (XSS) attack ซึ่งอันตราย
+สำหรับเว็บไซต์ของเราอย่างมาก วิธีการป้องกัน XSS นั้นสามารถทำได้โดยตรวจสอบและแก้ไขค่าภายนอกต่างๆที่เราได้รับมาแล้วถึงนำมาใช้ในโปรแกรมของเรา PHP นั้นได้มีฟังก์ชั่น
+ที่สามารถป้องกัน XSS ได้คือ `strip_tags` ที่จะทำการลบ HTML tag ออก หรือ `htmlentities` (หรือ `htmlspecialchars`) ที่จะทำการ escaping characters
+ที่มีความหมายพิเศษใน HTML entities ได้
 
-Another example is passing options to be executed on the command line. This can be extremely dangerous
-(and is usually a bad idea), but you can use the built-in `escapeshellarg` function to sanitize the executed
-command's arguments.
+อีกตัวอย่างหนึ่งก็คือ การที่รับข้อมูลภายนอกจาก command line ผ่านทาง options สิ่งนี้ก็ถือเป็นสิ่งที่อันตรายอย่างมาก (และก็ถือว่าเป็นสิ่งที่ไม่สมควรทำ) แต่ถ้าจำเป็นแล้ว
+คุณสามารถที่จะใช้ `escapeshellarg` ฟังก์ชั่นในการตรวจสอบและแก้ไขข้อมูลที่ได้รับมาจาก command line ได้
 
-One last example is accepting foreign input to determine a file to load from the filesystem. This can be exploited by
-changing the filename to a file path. You need to remove "/", "../", [null bytes][6], or other characters from the file path so it can't
-load hidden, non-public, or sensitive files.
+ตัวอย่างสุดท้ายก็คือ การที่เรายอมรับข้อมูลภายนอกเพื่อที่จะหาไฟล์ที่จะนำมาใช้ในระบบไฟล์ของเรา สิ่งนี้ก็ถือว่าเป็นสิ่งที่สามารถก่อให้เกิดอันตรายต่อระบบของเราได้ เพราะถ้า
+ข้้อมูลนั้นสามารถที่จะถูกเปลี่ยนจากชื่อไฟล์ให้เป็นไฟล์ path แทนแล้วละก็ ผู้จู่โจมสามารถที่จะหาไฟล์สำคัญต่างๆได้ ดังนั้นคุณจะต้องลบ "/", "../", [null bytes][6]
+หรือ characters ต่างๆจากไฟล์ path เพื่อที่จะป้องกันไม่ให้ไฟล์สำคัญต่างๆถูกจู่โจมได้
 
-* [Learn about data filtering][1]
-* [Learn about `filter_var`][4]
-* [Learn about `filter_input`][5]
-* [Learn about handling null bytes][6]
+* [เรียนรู้เกี่ยวกับ data filtering][1]
+* [เรียนรู้เกี่ยวกับ `filter_var`][4]
+* [เรียนรู้เกี่ยวกับ `filter_input`][5]
+* [เรียนรู้เกี่ยวกับการจัดการ null bytes][6]
 
 ### Sanitization
 
-Sanitization removes (or escapes) illegal or unsafe characters from foreign input.
+Sanitization คือการลบ (หรือที่เรียกว่า escapes) characters ต่างๆที่ไม่ปลอดภัยจากข้อมูลที่ได้รับจากภายนอกโปรแกรมของเรา
 
-For example, you should sanitize foreign input before including the input in HTML or inserting it
-into a raw SQL query. When you use bound parameters with [PDO](#databases), it will
-sanitize the input for you.
+ยกตัวอย่างเช่น คุณสมควรที่จะ sanitize ข้อมูลที่ได้รับจากภายนอกโปรแกรมของคุณทุกครั้ง ก่อนที่จะนำข้อมูลเหล่านั้นมาใช้ใน HTML หรือนำไปใช้ใน SQL query ทันที
+แต่ถ้าคุณได้ใช้การ bind parameters ด้วย [PDO](#databases) แล้วข้อมูลนั้นก็จะได้ผ่านการตรวจสอบให้คุณก่อนที่จะนำไปใช้ในฐานข้อมูลของคุณได้อย่างปลอดภัย
 
-Sometimes it is required to allow some safe HTML tags in the input when including it in the HTML
-page. This is very hard to do and many avoid it by using other more restricted formatting like
-Markdown or BBCode, although whitelisting libraries like [HTML Purifier][html-purifier] exists for
-this reason.
+ในบางครั้งคุณต้องการอนุญาติให้ข้อมูลภายนอกสามารถที่จะส่ง tag ของ HTML บางอย่างที่ปลอดภัยเข้ามาใช้ในโปรแกรมของคุณได้ วิธีนี้เป็นวิธีที่ยากพอสมควร นักพัฒนาส่วนมาก
+เลือกที่จะใช้ Markdown หรือ BBCode แทน HTML เพราะว่าจะปลอดภัยกว่าและสะดวกกว่า แต่ถ้าคุณใช้อยากที่จะใช้ HTML ในโปรแกรมของคุณ คุณก็สามารถที่จะใช้
+libraries อย่าง [HTML Purifier][html-purifier] และคุณก็สามารถที่จะกำหนดค่า whitelist ต่างๆได้เลย
 
-[See Sanitization Filters][2]
+[อ่านเพิ่มเติมเกี่ยวกับ Sanitization Filters][2]
 
 ### Validation
 
-Validation ensures that foreign input is what you expect. For example, you may want to validate an
-email address, a phone number, or age when processing a registration submission.
+การตรวจสอบข้อมูลนั้นจะใช้กับข้อมูลที่ได้รับจากภายนอกโปรแกรม เพื่อตรวจสอบว่าข้อมูลเหล่านั้นคือสิ่งที่คุณต้องการ ยกตัวอย่างเช่น คุณต้องการที่จะตรวจสอบข้อมูลนั้นซึ่งเป็น
+email address, เบอร์โทรศัพท์, หรือ อายุ เป็นต้น เมื่อมีค่าที่ส่งมาจากฟอร์มของคุณ
 
-[See Validation Filters][3]
+[อ่านเพิ่มเติม Validation Filters ต่างๆ][3]
 
 [1]: http://www.php.net/manual/en/book.filter.php
 [2]: http://www.php.net/manual/en/filter.filters.sanitize.php

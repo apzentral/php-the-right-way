@@ -4,31 +4,32 @@ isChild: true
 
 ## Test Driven Development {#test_driven_development_title}
 
-From [Wikipedia](http://en.wikipedia.org/wiki/Test-driven_development):
+จาก [Wikipedia](http://en.wikipedia.org/wiki/Test-driven_development):
 
-> Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes a failing automated test case that defines a desired improvement or new function, then produces code to pass that test and finally refactors the new code to acceptable standards. Kent Beck, who is credited with having developed or 'rediscovered' the technique, stated in 2003 that TDD encourages simple designs and inspires confidence
+> Test-driven development (TDD) คือกระบวนการพัฒนาซอฟต์แวร์ที่จะใช้หลักการที่เป็นระบบโดยมีระบบสั้นๆในแต่ละช่วงของการพัฒนาโปรแกรม:
+ขั้นตอนแรกนั้น นักพัฒนาโปรแกรมจะต้องเขียน test case ที่จะทำให้ฟังก์ชั่นหรือสิ่งที่ต้องการเพิ่มเติมเข้าไปในโปรแกรมของคุณไม่สามารถผ่าน test case เหล่านี้ได้
+และหลังจากนั้นก็เขียนโปรแกรมให้สามารถผ่าน test case เหล่านั้นได้และในที่สุดก็ใช้การ refactors โปรแกรมเหล่านั้นให้เหมาะสมกับมาตรฐานและเป็นที่ยอมรับ
+Kent Beck, ได้คิดค้นระบบ TDD ในปี 2003 โดยมีแนวคิดพื้นฐานว่า จะส่งเสริมการออกแบบโปรแกรมที่เรียบง่ายและจะเพิ่มเติมความเชื่อถือให้กับโปรแกรมของคุณ
 
-There are several different types of testing that you can do for your application
+กระบวนการทดสอบโปรแกรมนั้นได้มีอยู่หลายแบบ และคุณก็สามารถนำการทดสอบเหล่านั้นมาใช้ในโปรแกรมของคุณได้
 
 ### Unit Testing
 
-Unit Testing is a programming approach to ensure functions, classes and methods are working as
-expected, from the point you build them all the way through the development cycle. By checking
-values going in and out of various functions and methods, you can make sure the internal logic is
-working correctly. By using Dependency Injection and building "mock" classes and stubs you can verify that dependencies are correctly used for even better test coverage.
+Unit Testing เป็นวิธีการเขียนโปรแกรมที่จะรับรองว่าฟังก์ชั่น, classes, และ methods ต่างๆสามารถที่จะทำงานได้ตามที่ต้องการ ตั้งแต่คุณได้เริ่มสร้างจนกระทั้ง
+โปรแกรมพัฒนาจนเสร็จสิ้น โดยการตรวจสอบค่าที่ผ่านเข้าไปในฟังก์ชั่นและ methods ต่างๆ และค่าที่คืนออกมาเหล่านั้นด้วย ดังนั้นคุณจึงสามารถมั่นใจได้ว่าโปรแกรมของคุณ
+นั้นทำงานได้อย่างถูกต้อง โดยการใช้ Dependency Injection และการใช้ "mock" classes ในการที่จะตรวจสอบโปรแกรมของคุณ และคุณก็สามารถที่จะมั่นใจ
+ได้ว่า dependencies ของคุณนั้นได้ใช้ได้อย่างถูกต้อง ทำให้ test โปรแกรมของคุณนั้นได้ครบถ้วนมากขึ้น
 
-When you create a class or function you should create a unit test for each behavior it must have. At a very basic level you should
-make sure it errors if you send it bad arguments and make sure it works if you send it valid arguments.
-This will help ensure that when you make changes to this class or function later on in the development
-cycle that the old functionality continues to work as expected. The only alternative to this would be
-var_dump() in a test.php, which is no way to build an application - large or small.
+เมื่อคุณสร้าง class หรือ ฟังก์ชั่น คุณสมควรที่จะสร้าง unit test สำหรับพฤติกรรมต่างๆที่จะต้องมี แต่อย่างน้อยคุณจะต้องมั่นใจว่า unit test เหล่านั้นจะแสดงข้อความ
+ผิดพลาดเมื่อคุณส่งค่า arguments ที่ผิดและจะผ่าน unit test ถ้าคุณส่ง arguments ที่ถูกต้อง การที่ตั้ง unit test ขึ้นมาก็เพื่อที่จะให้เรามีความมั่นใจมากขึ้น
+เมื่อคุณทำการแก้ไข class หรือฟังก์ชั่นต่างๆในระหว่างการพัฒนาแล้วจะไม่ทำให้โปรแกรมเกิดข้อผิดพลาดขึ้นและยังทำงานได้อย่างปรกติ แต่ก็ยังมีอีกวิธีหนึ่งที่เราจะทำการ
+ตรวจสอบได้ก็คือใช้ var_dump() ใน test.php แต่การใช้วิธีนี้นั้นจะไม่สามารถที่จะนำไปสร้างโปรแกรมได้เลยไม่ว่าโปรแกรมขนาดใหญ่หรือเล็ก
 
-The other use for unit tests is contributing to open source. If you can write a test that shows broken
-functionality (i.e. fails), then fix it, and show the test passing, patches are much more likely to be accepted. If
-you run a project which accepts pull requests then you should suggest this as a requirement.
+ในการนำ unit tests ไปใช้ได้อีกวิธีหนึ่งก็คือการร่วมมือใน open source โปรแกรม ถ้าคุณสามารถที่จะเขียน test โปรแกรม ที่แสดงว่าโปรแกรมนั่นมีข้อบกพร่อง และ
+คุณได้ทำการแก้ไขได้เรียบร้อยและสามารถที่จะแสดงได้ว่าผ่าน test case เหล่านั้น โปรแกรมที่คุณได้แก้นั้นก็จะเป็นที่ยอมรับได้ง่าย และถ้าคุณได้สร้างโครงการขึ้นมา
+ที่จะยอมรับ pull requests แล้วละก็คุณก็สมควรที่จะบังคับใช้วิธีนี้เหมือนกัน
 
-[PHPUnit](http://phpunit.de) is the de-facto testing framework for writing unit tests for PHP
-applications, but there are several alternatives
+[PHPUnit](http://phpunit.de) เป็น testing framework ที่ใช้ในการเขียน unit tests สำหรับโปรแกรม PHP แต่ก็ยังมีโปรแกรมอื่นๆอีก
 
 * [SimpleTest](http://simpletest.org)
 * [Enhance PHP](http://www.enhance-php.com/)
@@ -39,20 +40,21 @@ applications, but there are several alternatives
 
 From [Wikipedia](http://en.wikipedia.org/wiki/Integration_testing):
 
-> Integration testing (sometimes called Integration and Testing, abbreviated "I&T") is the phase in software testing in which individual software modules are combined and tested as a group. It occurs after unit testing and before validation testing. Integration testing takes as its input modules that have been unit tested, groups them in larger aggregates, applies tests defined in an integration test plan to those aggregates, and delivers as its output the integrated system ready for system testing.
+> Integration testing (หรือที่เรียกว่า Integration และ Testing, คำย่อว่า "I&T") เป็นประโยคที่ใช้ในการทดสอบโปรแกรมที่ทดสอบโปรแกรมทั้งระบบ
+โดยจะเป็นการทดสอบหลังจาก unit testing และก่อนที่จะทำการ validation testing โดย Integration testing นั้นจะรวบรวมโปรแกรมย่อยต่างๆที่ได้ผ่าน
+การ unit tested เรียบร้อยแล้ว โดยนำมารวมกัน และก็ทำการตรวจสอบตาม integration test plan และถ้าผ่านการตรวจสอบนี้ไปได้ก็ โปรแกรมของคุณก็พร้อม
+ที่จะทดสอบด้วย system testing
 
-Many of the same tools that can be used for unit testing can be used for integration testing as many
-of the same principles are used.
+คุณสามารถที่จะใช้เครื่องมือเดียวกับที่คุณใช้ใน unit testing ได้ใน integration testing เพราะว่าจะมีวิธีการตรวจสอบที่คล้ายกัน
 
 ### Functional Testing
 
-Sometimes also known as acceptance testing, functional testing consists of using tools to create automated
-tests that actually use your application instead of just verifying that individual units of code are behaving
-correctly and that individual units can speak to each other correctly. These tools typically work using real
-data and simulating actual users of the application.
+หรือที่ถูกเรียกว่า acceptance testing, functional testing นั้นจะเป็นการใช้เครื่องมือต่างๆในการสร้างโปรแกรมตรวจสอบอัตโนมัติ โดยจะทำการตรวจสอบ
+โปรแกรมของคุณทั้งโปรแกรม แทนที่จะตรวจสอบเป็นหน่วยๆไปว่า หน่วยต่างๆทำงานได้ถูกต้องหรือไม่และสามารถทำงานร่วมกันได้หรือไม่ โดยทั่วไปแล้ว เครื่องมือเหล่านี้จะ
+ใช้ข้อมูลจริงและจะทำการจำลองการใช้งานจริงของผู้ใช้งานของโปรแกรมนั้น
 
 #### Functional Testing Tools
 
 * [Selenium](http://seleniumhq.com)
 * [Mink](http://mink.behat.org)
-* [Codeception](http://codeception.com) is a full-stack testing framework that includes acceptance testing tools
+* [Codeception](http://codeception.com) เป็น full-stack testing framework ที่รวมเครื่องมือในการทดสอบด้วย acceptance testing

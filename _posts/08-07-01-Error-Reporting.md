@@ -4,44 +4,42 @@ isChild: true
 
 ## Error Reporting {#error_reporting_title}
 
-Error logging can be useful in finding the problem spots in your application, but it can also expose information about 
-the structure of your application to the outside world. To effectively protect your application from issues that could 
-be caused by the output of these messages, you need to configure your server differently in development versus 
-production (live).
+การบันทึกข้อผิดพลาดนั้นจะมีประโยชน์อย่างมากในการหาข้อผิดพลาดในโปรแกรมของคุณ แต่ข้อเสียนั้นก็คืออาจจะเป็นเผยข้อมูลเกี่ยวกับโครงสร้างโปรแกรมของคุณสู่โลกภายนอกได้
+ดังนั้นการที่จะปกป้องโปรแกรมของคุณจากปัญหาที่อาจจะเกิดขึ้นได้จากการแสดงข้อผิดพลาดเหล่านั้น คุณจะต้องทำการกำหนดค่าของเซิร์ฟเวอร์แตกต่างกันระหว่างกำลังพัฒนา
+และนำไปใช้งานจริงใน production
 
-### Development
+### ระหว่างการพัฒนา
 
-To show every possible error during <strong>development</strong>, configure the following settings in your `php.ini`:
+สำหรับการแสดงข้อผิดพลาดระหว่างการ<strong>พัฒนา</strong>นั้น เราต้องการที่จะแสดงข้อผิดพลาดทุกอย่างออกมาทั้งหมด, เราสามารถที่จะตั้งค่าเหล่านี้ได้ใน `php.ini`:
 
     display_errors = On
     display_startup_errors = On
     error_reporting = -1
     log_errors = On
 
-> Passing in the value `-1` will show every possible error, even when new levels and constants are added in future PHP versions. The `E_ALL` constant also behaves this way as of PHP 5.4. - [php.net](http://php.net/manual/function.error-reporting.php)
+> การผ่านค่า `-1` เข้าไป จะทำให้ PHP แสดงค่าผิดพลาดต่างๆออกมา ไม่ว่าจะเป็นค่าใหม่ๆที่จะได้รับเพิ่มเติมเข้ามา PHP รุ่นอนาคต การใช้ค่าคงที่ `E_ALL` ใน PHP รุ่น
+5.4 ก็จะเป็นเหมือนกัน - [php.net](http://php.net/manual/function.error-reporting.php)
 
-The `E_STRICT` error level constant was introduced in 5.3.0 and is not 
-part of `E_ALL`, however it became part of `E_ALL` in 5.4.0. What does this mean? 
-In terms of reporting every possible error in version 5.3 it means you must 
-use either `-1` or `E_ALL | E_STRICT`. 
+การตั้งค่า `E_STRICT` ในการแสดงข้อผิดพลาดนั้น ได้เริ่มใช้ใน PHP รุ่น 5.3.0 และค่านี้จะไม่ได้รวมอยู่ใน `E_ALL` ด้วย แต่ในรุ่น 5.4.0 นั้น จะถูกรวมอยู่ใน `E_ALL`
+ด้วย นั่นก็หมายความว่า ถ้าคุณได้ใช้ PHP รุ่น 5.3 นั้นและคุณต้องการที่จะแสดงข้อผิดพลาดทั้งหมดแล้วละก็จะต้องใช้คำสั่ง `-1` หรือ `E_ALL | E_STRICT`
 
-**Reporting every possible error by PHP version**
+**รวมรวมค่าที่ใช้ในการแสดงข้อผิดพลาดทั้งหมดโดยแยกตามรุ่นของ PHP**
 
-* &lt; 5.3 `-1` or `E_ALL`
-* &nbsp; 5.3 `-1` or `E_ALL | E_STRICT`
-* &gt; 5.3 `-1` or `E_ALL`
+* &lt; 5.3 `-1` หรือ `E_ALL`
+* &nbsp; 5.3 `-1` หรือ `E_ALL | E_STRICT`
+* &gt; 5.3 `-1` หรือ `E_ALL`
 
 ### Production
 
-To hide errors on your <strong>production</strong> environment, configure your `php.ini` as:
+สำหรับการใช้การแสดงข้อผิดพลาดใน production นั้น คุณสมควรที่ซ่อนข้อผิดพลาดโดยการตั้งค่าเหล่านี้ใน `php.ini`:
 
     display_errors = Off
     display_startup_errors = Off
     error_reporting = E_ALL
     log_errors = On
 
-With these settings in production, errors will still be logged to the error logs for the web server, but will not be 
-shown to the user. For more information on these settings, see the PHP manual:
+โดยการตั้งค่าเหล่านั้นใน production ข้อผิดพลาดทั้งหลายก็ยังคงเก็บไว้ใน error logs ในเว็บเซิร์ฟเวอร์ของคุณ แต่ข้อผิดพลาดเหล่านี้จะไม่แสดงออกมาให้ผู้ใช้
+โปรแกรมของคุณได้เห็น, สำหรับข้อมูลเพิ่มเติมเกี่ยวการตั้งค่าเหล่านี้ คุณสามารถอ่านได้จากคู่มือของ PHP:
 
 * [error_reporting](http://php.net/manual/errorfunc.configuration.php#ini.error-reporting)
 * [display_errors](http://php.net/manual/errorfunc.configuration.php#ini.display-errors)

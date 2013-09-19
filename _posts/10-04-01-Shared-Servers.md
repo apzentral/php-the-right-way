@@ -4,4 +4,7 @@ isChild: true
 
 ## Shared Servers {#shared_servers_title}
 
-PHP has shared servers to thank for its popularity. It is hard to find a host without PHP installed, but be sure it's the latest version. Shared servers allow you and other developers to deploy websites to a single machine. The upside to this is that it has become a cheap commodity. The downside is that you never know what kind of a ruckus your neighboring tenants are going to create; loading down the server or opening up security holes are the main concerns. If your project's budget can afford to avoid shared servers you should.
+PHP ได้มี shared servers ส่วนมากรองรับเพราะในความเป็นที่นิยม เป็นไปได้ยากมากที่คุณจะไม่สามารถหา host ที่ไม่มี PHP ติดตั้งอยู่ แต่คุณจะต้องมั่นใจว่าเป็น
+รุ่นที่ใหม่ล่าสุด shared servers จะอนุญาติให้คุณและผู้พัฒนาโปรแกรมต่างๆได้ติดตั้งเว็บไซต์ลงบนเครื่องเดียวกัน ข่้อดีของ shared servers นั้นก็คือ ค่าใช้จ่ายที่ถูกลง
+ข่้อเสียก็คือ คุณจะไม่สามารถทราบได้ว่าโปรแกรมที่ผู้พัฒนาโปรแกรมคนอื่นๆนั้น ได้ติดตั้งจะเป็นอย่างไร จะทำให้เครื่อง server นั้นช้าลงหรือเป็นช่องทางให้ระบบไม่
+ปลอดภัย นี้ก็คือสิ่งที่น่ากลัวมากที่สุด ถ้าโครงการของคุณสามารถที่จะมีงบประมาณมากพอ คุณสมควรที่จะหลีกเลี่ยงการใช้ shared server

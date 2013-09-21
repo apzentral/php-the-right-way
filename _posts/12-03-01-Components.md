@@ -4,23 +4,22 @@ isChild: true
 
 ## Components {#components_title}
 
-As mentioned above "Components" are another approach to the common goal of creating, distributing and implementing shared code. Various 
-component repositories exist, the main two of which are:
+ดังที่ได้กล่าวไว้ข้างต้น "Components" คือเป้าหมายในการสร้าง, แจกจ่าย, และการนำโปรแกรมมาใช้ โดย component repositories สำหรับ PHP นั้นได้มีอยู่สองที่ คือ
 
 * [Packagist](/#composer_and_packagist)
 * [PEAR](/#pear)
 
-Both of these repositories have command line tools associated with them to help the installation and upgrade processes, and have been 
-explained in more detail in the [Dependency Management][dm] section.
+โดย repositories ทั้งสองที่นั้นได้มีเครื่องมือใน command line ติดตัั้งมาด้วยในการช่วยในการติดตั้งและเพิ่มเติมการทำงานของคุณ และได้อธิบายในหัวข้อ
+[Dependency Management][dm]
 
-There are also component-based frameworks, which allow you to use their components with minimal (or no) requirements. For example, you 
-can use the [FuelPHP Validation package][fuelval], without needing to use the FuelPHP framework itself. These projects are essentially 
-just another repository for reusable components:
+นอกจากนั้นก็ยังมี component-based frameworks ที่จะยอมให้คุณได้นำมาใช้โดยไม่มีหรือมีข้อกำหนดที่น้อยมาก ยกตัวอย่างเช่น คุณสามารถที่จะใช้
+[FuelPHP Validation package][fuelval] โดยที่คุณไม่จำเป็นที่จะต้องใช้ FuelPHP framework เลย โครงการเหล่านี้นับว่าเป็น repository สำหรับนำ components
+มาใช้ในโครงการของคุณอีกด้วย
 
   [dm]: /#dependency_management
   [fuelval]: https://github.com/fuelphp/validation
 
 * [Aura](http://auraphp.github.com/)
-* [FuelPHP (2.0 only)](https://github.com/fuelphp)
+* [FuelPHP (รุ่น 2.0 เท่านั้น)](https://github.com/fuelphp)
 * [Laravel's "Illuminate Components"](https://github.com/illuminate)
 * [Symfony Components](http://symfony.com/doc/current/components/index.html)

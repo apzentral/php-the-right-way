@@ -1,11 +1,11 @@
 # Resources {#resources_title}
 
-## From the Source
+## จาก Source หลัก
 
 * [PHP Website](http://php.net/)
 * [PHP Documentation](http://php.net/docs.php)
 
-## People to Follow
+## บุคคลที่สมควรที่จะติดตาม
 
 * [Rasmus Lerdorf](http://twitter.com/rasmus)
 * [Fabien Potencier](http://twitter.com/fabpot)
@@ -19,14 +19,14 @@
 
 ## Mentoring
 
-* [phpmentoring.org](http://phpmentoring.org/) - Formal, peer to peer mentoring in the PHP community.
+* [phpmentoring.org](http://phpmentoring.org/) - peer to peer ที่ให้คำปรึกษาในชุมชนผู้พัฒนาภาษา PHP อย่างเป็นทางการ
 
 ## PHP PaaS Providers
 
 * [PagodaBox](https://pagodabox.com/)
 * [AppFog](https://appfog.com/)
 * [Heroku](https://heroku.com)
-  (PHP support is undocumented but based on stable Facebook partnership [link](http://net.tutsplus.com/tutorials/php/quick-tip-deploy-php-to-heroku-in-seconds/))
+  (รองรับ PHP แต่ว่าไม่ได้มีคู่มือการติดตั้ง แต่ Facebook ได้มีส่วนร่วมอยู่ด้วย [link](http://net.tutsplus.com/tutorials/php/quick-tip-deploy-php-to-heroku-in-seconds/))
 * [fortrabbit](http://fortrabbit.com/)
 * [Engine Yard Cloud](https://www.engineyard.com/products/cloud)
 * [Red Hat OpenShift Platform](http://www.redhat.com/products/cloud-computing/openshift/)

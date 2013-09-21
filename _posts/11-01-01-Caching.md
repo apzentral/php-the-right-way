@@ -1,4 +1,5 @@
 # Caching {#caching_title}
 
-PHP is pretty quick by itself, but bottlenecks can arise when you make remote connections, load files, etc. 
-Thankfully, there are various tools available to speed up certain parts of your application, or reduce the number of times these various time-consuming tasks need to run.
+PHP ได้ทำงานได้เร็วอยู่แล้ว, แต่ bottlenecks สามารถเกิดขึ้นได้เมื่อคุณได้ทำการเชื่อมต่อด้วย remote connections, อ่านไฟล์, และอื่นๆ
+ต้องขอขอบคุณที่ได้มีเครื่องมือต่างๆมากมายที่คอยช่วยเพิ่มความเร็วให้กับ PHP ในการทำงานในแต่ละช่วงของโปรแกรมของคุณ หรือ แม้กระทั้งจะ
+ลดการทำงานของคำสั่งบางคำสั่งที่ใช้เวลานานมากในการเรียกใช้คำสั่งเหล่านั้น
